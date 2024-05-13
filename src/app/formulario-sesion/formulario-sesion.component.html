@@ -1,0 +1,43 @@
+<h2>Iniciar sesión</h2>
+<form [formGroup]="loginForm" #frmProducto="ngForm" (ngSubmit)="crearPerfil()">
+  <div class="form-group">
+    <label for="idUsuario">ID Usuario</label>
+    <input type="number" class="form-control" id="idUsuario" formControlName="idUsuario">
+  </div>
+  <div class="form-group">
+    <label for="nombreUsuario">Nombre</label>
+    <input type="text" class="form-control" id="nombreUsuario" formControlName="nombreUsuario" required>
+  </div>
+  <div class="form-group">
+    <label for="emailUsuario">Email</label>
+    <input type="email" class="form-control" id="emailUsuario" formControlName="emailUsuario" required>
+  </div>
+  <div class="form-group">
+    <label for="apodoUsuario">Apodo</label>
+    <input type="text" class="form-control" id="apodoUsuario" formControlName="apodoUsuario" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+</form>
+
+
+
+<h1>Lista de usuarios</h1>
+<table>
+    @for (usuario of usuarios; track usuario.idUsuario) {
+        <tbody>
+            <tr>
+                <td>{{usuario.idUsuario}}</td>
+                <td>{{usuario.nombreUsuario}}</td>
+                <td>{{usuario.emailUsuario}}</td>
+                <td>{{usuario.apodoUsuario}}</td>
+                
+               
+                
+                <td><button type="button" (click)="editar(usuario)">Editar Producto</button></td>
+                <td><button type="button" (click)="eliminar(usuario)">Eliminar Producto</button></td>
+            </tr>
+
+           
+        </tbody>
+    }
+</table>
